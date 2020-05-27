@@ -38,7 +38,7 @@ class App extends React.Component {
   handleClick(video) {
     this.setState ({
       videoPlayer: video
-    })
+    });
   }
 
 
