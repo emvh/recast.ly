@@ -1,6 +1,7 @@
 import VideoList from './VideoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
+import searchYouTube from '../lib/searchYouTube.js';
 // import Search from './Search.js';
 
 // var App = () => (
