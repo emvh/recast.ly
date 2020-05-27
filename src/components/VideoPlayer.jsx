@@ -7,7 +7,7 @@ var VideoPlayer = (props) => (
         //using string concatenation:
         src={'https://www.youtube.com/embed/' + props.video.id.videoId}
         // using template literals:
-        // src=`https://www.youtube.com/embed/${props.video.id.videoId}`
+        // src={`https://www.youtube.com/embed/${props.video.id.videoId}`}
         allowFullScreen
       >
       </iframe>
