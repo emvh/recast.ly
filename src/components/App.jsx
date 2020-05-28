@@ -2,6 +2,7 @@ import VideoList from './VideoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
 import searchYouTube from '../lib/searchYouTube.js';
+// import YOUTUBE_API_KEY from '../config/youtube.js';
 // import Search from './Search.js';
 
 // var App = () => (
@@ -29,10 +30,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       //needs to keep track of all the videos in the video list and the current video in the player
+      // videoList: [],
       videoList: exampleVideoData,
-      videoPlayer: exampleVideoData[0],
+      videoPlayer: exampleVideoData[0]
+      // videoPlayer: {}
     };
     this.handleClick = this.handleClick.bind(this);
+    // this.setState = this.setState.bind(this);
+    this.getVideos = this.getVideos.bind(this);
   }
 
   //create event handler for click event when videoListEntry is clicked
@@ -42,9 +47,30 @@ class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.getVideos();
+  }
+
+  getVideos() {
+    let options = {
+      key: this.props.propYoutube,
+      query: 'puppies',
+      max: 5
+    }
+    searchYouTube(options,
+    (videos) => {
+      console.log(videos);
+      this.setState ({
+        videoList: videos,
+        videoPlayer: videos[0]
+      });
+    });
+  }
+
 
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <nav className="navbar">
@@ -67,6 +93,7 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
 
 

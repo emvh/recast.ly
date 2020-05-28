@@ -1,6 +1,8 @@
+// import exampleVideoData from '../data/exampleVideoData.js';
+
 var VideoPlayer = (props) => (
   <div className="video-player">
-    {/* {console.log('props here', props)} */}
+    {console.log('props here', props)}
     <div className="embed-responsive embed-responsive-16by9">
       <iframe
         className="embed-responsive-item"

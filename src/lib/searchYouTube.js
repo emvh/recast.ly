@@ -13,7 +13,7 @@ var searchYouTube = (options, callback) => {
     data: {
       key: options.key,
       q: options.query,
-      maxResults: options.max,
+      maxResults: options.max || 5,
       part: 'snippet',
       type: 'video',
       videoEmbeddable: 'true'
@@ -21,7 +21,7 @@ var searchYouTube = (options, callback) => {
     contentType: 'application/json',
     success: (data) => {
 
-      console.log(data.items);
+      console.log(data);
       //invoke the callback with the videos array that is returned from hitting the endpoint
       callback(data.items);
 
@@ -32,6 +32,7 @@ var searchYouTube = (options, callback) => {
 
     }
   });
+  // console.log('hello');
 
 //simple get request:
   // $.get('https://www.googleapis.com/youtube/v3/search', {
